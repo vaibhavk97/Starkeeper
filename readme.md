@@ -1,15 +1,15 @@
-#Starkeeper
+# Starkeeper
 
 Starkeeper is designed for starring (unstaring) the repositories of those people who star(unstar) your repositories.
 
-##Configuration
+## Configuration
 
 ~~~
 GITHUB_TOKEN = 'Paste your Github API Token here'
 NUMBER = 10 # The number of randomly selected repos which will be starred.
 ~~~
 
-##Setup
+## Setup
 
 Github tokens can be obtained from [here](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
 
@@ -19,7 +19,7 @@ Starkeeper is a web hook listener which works upon **json** data for indentifyin
 
 Make sure you setup the content type as Application/json.
 
-##Steps
+## Steps
 
 1. Setup an account on https://pythonanywhere.com. Setup a webapp using Flask and add the contents of the starkeeper to the webapp file.
 2. Issue Github API Token for your account from [here](https://github.com/settings/tokens), and add it to GITHUB_TOKEN field.
