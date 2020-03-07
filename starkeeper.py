@@ -27,15 +27,17 @@ def index():
         req_data = request.get_json()
         name = req_data['sender']['login']
         auth_user = g.get_user()
-        if req_data['action'] == 'created':
-            repoList = getBunchOfrepos(name)
-            for repo in repoList:
-                if repo.name == 'FairGAN':
+        try:
+            if req_data['action'] == 'created':
+                repoList = getBunchOfrepos(name)
+                for repo in repoList:
                     auth_user.add_to_starred(repo)
                     counter += 1
-            starred[name] = [x for x in repoList]
-        if req_data['action'] == 'deleted':
-            repoList = starred[name]
-            for repo in repoList:
-                auth_user.remove_from_starred(repo)
-        return "Operation Successful"
+                starred[name] = [x for x in repoList]
+            if req_data['action'] == 'deleted':
+                repoList = starred[name]
+                for repo in repoList:
+                    auth_user.remove_from_starred(repo)
+            return "Operation Successful"
+        except:
+            return "Random response"
